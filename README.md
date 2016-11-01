@@ -14,4 +14,12 @@ We ended up having to do more data manipulation than originally anticipated.  Be
 
 We allow the user to select a year in order to view information one year at a time as to not be overwhelmed by 15 years worth of shootings.  
 
-To install this project, copy the Project2 folder to a webserver and point a web browser to the Project2 url. From there you can choose a specfic year that you are interested in. 
+To install this project, copy the Project2 folder to a webserver and point a web browser to the Project2 url. From there you can choose a specfic year that you are interested in.
+
+Banner and year selection - Mario
+Plot Map - Mario/Randy
+Shade Map - Mario
+Network - Francisco/Mario
+Bar Chart - Francisco
+Github - Francisco
+
