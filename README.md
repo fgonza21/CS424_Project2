@@ -13,3 +13,5 @@ Our fourth visualization is a bar graph. Because it is a more familiar visualiza
 We ended up having to do more data manipulation than originally anticipated.  Because school and library information are not given by year, we had to leave that information static.  Although schools and libraries may have open and closed over the 15 year period for which we have shooting data, we feel this still gives a good representation for Chicago over those 15 years. 
 
 We allow the user to select a year in order to view information one year at a time as to not be overwhelmed by 15 years worth of shootings.  
+
+To install this project, copy the Project2 folder to a webserver and point a web browser to the Project2 url. From there you can choose a specfic year that you are interested in. 
