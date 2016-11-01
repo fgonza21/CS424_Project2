@@ -1,928 +1,1237 @@
 [{
+		"idNum" : null,
 		"id" : "Chicago",
 		"value" : null
 	}, {
+		"idNum" : 1,
 		"id" : "Chicago.AlbanyPark",
 		"value" : null
 	}, {
+		"idNum" : 1,
 		"id" : "Chicago.AlbanyPark.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 1,
 		"id" : "Chicago.AlbanyPark.Schools",
 		"value" : 9
 	}, {
+		"idNum" : 1,
 		"id" : "Chicago.AlbanyPark.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 57,
 		"id" : "Chicago.ArcherHeights",
 		"value" : null
 	}, {
+		"idNum" : 57,
 		"id" : "Chicago.ArcherHeights.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 57,
 		"id" : "Chicago.ArcherHeights.Schools",
 		"value" : 5
 	}, {
+		"idNum" : 57,
 		"id" : "Chicago.ArcherHeights.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 34,
 		"id" : "Chicago.ArmourSquare",
 		"value" : null
 	}, {
+		"idNum" : 34,
 		"id" : "Chicago.ArmourSquare.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 34,
 		"id" : "Chicago.ArmourSquare.Schools",
 		"value" : 3
 	}, {
+		"idNum" : 34,
 		"id" : "Chicago.ArmourSquare.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 70,
 		"id" : "Chicago.Ashburn",
 		"value" : null
 	}, {
+		"idNum" : 70,
 		"id" : "Chicago.Ashburn.Libraries",
 		"value" : 2
 	}, {
+		"idNum" : 70,
 		"id" : "Chicago.Ashburn.Schools",
 		"value" : 11
 	}, {
+		"idNum" : 70,
 		"id" : "Chicago.Ashburn.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 71,
 		"id" : "Chicago.AuburnGresham",
 		"value" : null
 	}, {
+		"idNum" : 71,
 		"id" : "Chicago.AuburnGresham.Libraries",
 		"value" : 2
 	}, {
+		"idNum" : 71,
 		"id" : "Chicago.AuburnGresham.Schools",
 		"value" : 17
 	}, {
+		"idNum" : 71,
 		"id" : "Chicago.AuburnGresham.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 25,
 		"id" : "Chicago.Austin",
 		"value" : null
 	}, {
+		"idNum" : 25,
 		"id" : "Chicago.Austin.Libraries",
 		"value" : 3
 	}, {
+		"idNum" : 25,
 		"id" : "Chicago.Austin.Schools",
 		"value" : 26
 	}, {
+		"idNum" : 25,
 		"id" : "Chicago.Austin.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 45,
 		"id" : "Chicago.AvalonPark",
 		"value" : null
 	}, {
+		"idNum" : 45,
 		"id" : "Chicago.AvalonPark.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 45,
 		"id" : "Chicago.AvalonPark.Schools",
 		"value" : 5
 	}, {
+		"idNum" : 45,
 		"id" : "Chicago.AvalonPark.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 21,
 		"id" : "Chicago.Avondale",
 		"value" : null
 	}, {
+		"idNum" : 21,
 		"id" : "Chicago.Avondale.Libraries",
 		"value" : 0
 	}, {
+		"idNum" : 21,
 		"id" : "Chicago.Avondale.Schools",
 		"value" : 8
 	}, {
+		"idNum" : 21,
 		"id" : "Chicago.Avondale.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 19,
 		"id" : "Chicago.BelmontCragin",
 		"value" : null
 	}, {
+		"idNum" : 19,
 		"id" : "Chicago.BelmontCragin.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 19,
 		"id" : "Chicago.BelmontCragin.Schools",
 		"value" : 15
 	}, {
+		"idNum" : 19,
 		"id" : "Chicago.BelmontCragin.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 72,
 		"id" : "Chicago.Beverly",
 		"value" : 1
 	}, {
+		"idNum" : 72,
 		"id" : "Chicago.Beverly.Libraries",
 		"value" : 3
 	}, {
+		"idNum" : 72,
 		"id" : "Chicago.Beverly.Schools",
 		"value" : null
 	}, {
+		"idNum" : 72,
 		"id" : "Chicago.Beverly.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 60,
 		"id" : "Chicago.Bridgeport",
 		"value" : null
 	}, {
+		"idNum" : 60,
 		"id" : "Chicago.Bridgeport.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 60,
 		"id" : "Chicago.Bridgeport.Schools",
 		"value" : 5
 	}, {
+		"idNum" : 60,
 		"id" : "Chicago.Bridgeport.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 58,
 		"id" : "Chicago.BrightonPark",
 		"value" : null
 	}, {
+		"idNum" : 58,
 		"id" : "Chicago.BrightonPark.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 58,
 		"id" : "Chicago.BrightonPark.Schools",
 		"value" : 12
 	}, {
+		"idNum" : 58,
 		"id" : "Chicago.BrightonPark.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 47,
 		"id" : "Chicago.Burnside",
 		"value" : null
 	}, {
+		"idNum" : 47,
 		"id" : "Chicago.Burnside.Libraries",
 		"value" : 0
 	}, {
+		"idNum" : 47,
 		"id" : "Chicago.Burnside.Schools",
 		"value" : 1
 	}, {
+		"idNum" : 47,
 		"id" : "Chicago.Burnside.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 48,
 		"id" : "Chicago.CalumetHeights",
 		"value" : null
 	}, {
+		"idNum" : 48,
 		"id" : "Chicago.CalumetHeights.Libraries",
 		"value" : 0
 	}, {
+		"idNum" : 48,
 		"id" : "Chicago.CalumetHeights.Schools",
 		"value" : 5
 	}, {
+		"idNum" : 48,
 		"id" : "Chicago.CalumetHeights.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 44,
 		"id" : "Chicago.Chatham",
 		"value" : null
 	}, {
+		"idNum" : 44,
 		"id" : "Chicago.Chatham.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 44,
 		"id" : "Chicago.Chatham.Schools",
 		"value" : 10
 	}, {
+		"idNum" : 44,
 		"id" : "Chicago.Chatham.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 66,
 		"id" : "Chicago.ChicagoLawn",
 		"value" : null
 	}, {
+		"idNum" : 66,
 		"id" : "Chicago.ChicagoLawn.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 66,
 		"id" : "Chicago.ChicagoLawn.Schools",
 		"value" : 9
 	}, {
+		"idNum" : 66,
 		"id" : "Chicago.ChicagoLawn.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 64,
 		"id" : "Chicago.Clearing",
 		"value" : null
 	}, {
+		"idNum" : 64,
 		"id" : "Chicago.Clearing.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 64,
 		"id" : "Chicago.Clearing.Schools",
 		"value" : 4
 	}, {
+		"idNum" : 64,
 		"id" : "Chicago.Clearing.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 35,
 		"id" : "Chicago.Douglas",
 		"value" : null
 	}, {
+		"idNum" : 35,
 		"id" : "Chicago.Douglas.Libraries",
 		"value" : 2
 	}, {
+		"idNum" : 35,
 		"id" : "Chicago.Douglas.Schools",
 		"value" : 13
 	}, {
+		"idNum" : 35,
 		"id" : "Chicago.Douglas.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 17,
 		"id" : "Chicago.Dunning",
 		"value" : null
 	}, {
+		"idNum" : 17,
 		"id" : "Chicago.Dunning.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 17,
 		"id" : "Chicago.Dunning.Schools",
 		"value" : 6
 	}, {
+		"idNum" : 17,
 		"id" : "Chicago.Dunning.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 27,
 		"id" : "Chicago.EastGarfieldPark",
 		"value" : null
 	}, {
+		"idNum" : 27,
 		"id" : "Chicago.EastGarfieldPark.Libraries",
 		"value" : 0
-	}, {
+	}, { 
+		"idNum" : 27,
 		"id" : "Chicago.EastGarfieldPark.Schools",
 		"value" : 14
 	}, {
+		"idNum" : 27,
 		"id" : "Chicago.EastGarfieldPark.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 52,
 		"id" : "Chicago.EastSide",
 		"value" : null
 	}, {
+		"idNum" : 52,
 		"id" : "Chicago.EastSide.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 52,
 		"id" : "Chicago.EastSide.Schools",
 		"value" : 5
 	}, {
+		"idNum" : 52,
 		"id" : "Chicago.EastSide.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 77,
 		"id" : "Chicago.Edgewater",
 		"value" : null
 	}, {
+		"idNum" : 77,
 		"id" : "Chicago.Edgewater.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 77,
 		"id" : "Chicago.Edgewater.Schools",
 		"value" : 6
 	}, {
+		"idNum" : 77,
 		"id" : "Chicago.Edgewater.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 9,
 		"id" : "Chicago.EdisonPark",
 		"value" : null
 	}, {
+		"idNum" : 9,
 		"id" : "Chicago.EdisonPark.Libraries",
 		"value" : 0
 	}, {
+		"idNum" : 9,
 		"id" : "Chicago.EdisonPark.Schools",
 		"value" : 3
 	}, {
+		"idNum" : 9,
 		"id" : "Chicago.EdisonPark.Shooting",
 		"value" : null
 	}, {
+		"idNum" : 68,
 		"id" : "Chicago.Englewood",
 		"value" : null
 	}, {
+		"idNum" : 68,
 		"id" : "Chicago.Englewood.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 68,
 		"id" : "Chicago.Englewood.Schools",
 		"value" : 18
 	}, {
+		"idNum" : 68,
 		"id" : "Chicago.Englewood.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 12,
 		"id" : "Chicago.ForestGlen",
 		"value" : null
 	}, {
+		"idNum" : 12,
 		"id" : "Chicago.ForestGlen.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 12,
 		"id" : "Chicago.ForestGlen.Schools",
 		"value" : 3
 	}, {
+		"idNum" : 12,
 		"id" : "Chicago.ForestGlen.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 37,
 		"id" : "Chicago.FullerPark",
 		"value" : null
 	}, {
+		"idNum" : 37,
 		"id" : "Chicago.FullerPark.Libraries",
 		"value" : 0
 	}, {
+		"idNum" : 37,
 		"id" : "Chicago.FullerPark.Schools",
 		"value" : 2
 	}, {
+		"idNum" : 37,
 		"id" : "Chicago.FullerPark.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 63,
 		"id" : "Chicago.GagePark",
 		"value" : null
 	}, {
+		"idNum" : 63,
 		"id" : "Chicago.GagePark.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 63,
 		"id" : "Chicago.GagePark.Schools",
 		"value" : 13
 	}, {
+		"idNum" : 63,
 		"id" : "Chicago.GagePark.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 56,
 		"id" : "Chicago.GarfieldRidge",
 		"value" : null
 	}, {
+		"idNum" : 56,
 		"id" : "Chicago.GarfieldRidge.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 56,
 		"id" : "Chicago.GarfieldRidge.Schools",
 		"value" : 6
 	}, {
+		"idNum" : 56,
 		"id" : "Chicago.GarfieldRidge.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 38,
 		"id" : "Chicago.GrandBoulevard",
 		"value" : null
 	}, {
+		"idNum" : 38,
 		"id" : "Chicago.GrandBoulevard.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 38,
 		"id" : "Chicago.GrandBoulevard.Schools",
 		"value" : 11
 	}, {
+		"idNum" : 38,
 		"id" : "Chicago.GrandBoulevard.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 69,
 		"id" : "Chicago.GreaterGrandCrossing",
 		"value" : null
 	}, {
+		"idNum" : 69,
 		"id" : "Chicago.GreaterGrandCrossing.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 69,
 		"id" : "Chicago.GreaterGrandCrossing.Schools",
 		"value" : 11
 	}, {
+		"idNum" : 69,
 		"id" : "Chicago.GreaterGrandCrossing.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 55,
 		"id" : "Chicago.Hegewisch",
 		"value" : null
 	}, {
+		"idNum" : 55,
 		"id" : "Chicago.Hegewisch.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 55,
 		"id" : "Chicago.Hegewisch.Schools",
 		"value" : 2
 	}, {
+		"idNum" : 55,
 		"id" : "Chicago.Hegewisch.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 20,
 		"id" : "Chicago.Hermosa",
 		"value" : null
 	}, {
+		"idNum" : 20,
 		"id" : "Chicago.Hermosa.Libraries",
 		"value" : 0
 	}, {
+		"idNum" : 20,
 		"id" : "Chicago.Hermosa.Schools",
 		"value" : 5
 	}, {
+		"idNum" : 20,
 		"id" : "Chicago.Hermosa.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 23,
 		"id" : "Chicago.HumboldtPark",
 		"value" : null
 	}, {
+		"idNum" : 23,
 		"id" : "Chicago.HumboldtPark.Libraries",
 		"value" : 3
 	}, {
+		"idNum" : 23,
 		"id" : "Chicago.HumboldtPark.Schools",
 		"value" : 18
 	}, {
+		"idNum" : 23,
 		"id" : "Chicago.HumboldtPark.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 41,
 		"id" : "Chicago.HydePark",
 		"value" : null
 	}, {
+		"idNum" : 41,
 		"id" : "Chicago.HydePark.Libraries",
 		"value" : 0
 	}, {
+		"idNum" : 41,
 		"id" : "Chicago.HydePark.Schools",
 		"value" : 4
 	}, {
+		"idNum" : 41,
 		"id" : "Chicago.HydePark.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 16,
 		"id" : "Chicago.IrvingPark",
 		"value" : null
 	}, {
+		"idNum" : 16,
 		"id" : "Chicago.IrvingPark.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 16,
 		"id" : "Chicago.IrvingPark.Schools",
 		"value" : 11
 	}, {
+		"idNum" : 16,
 		"id" : "Chicago.IrvingPark.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 11,
 		"id" : "Chicago.JeffersonPark",
 		"value" : null
 	}, {
+		"idNum" : 11,
 		"id" : "Chicago.JeffersonPark.Libraries",
 		"value" : 0
 	}, {
+		"idNum" : 11,
 		"id" : "Chicago.JeffersonPark.Schools",
 		"value" : 2
 	}, {
+		"idNum" : 11,
 		"id" : "Chicago.JeffersonPark.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 39,
 		"id" : "Chicago.Kenwood",
 		"value" : null
 	}, {
+		"idNum" : 39,
 		"id" : "Chicago.Kenwood.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 39,
 		"id" : "Chicago.Kenwood.Schools",
 		"value" : 8
 	}, {
+		"idNum" : 39,
 		"id" : "Chicago.Kenwood.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 6,
 		"id" : "Chicago.LakeView",
 		"value" : null
 	}, {
+		"idNum" : 6,
 		"id" : "Chicago.LakeView.Libraries",
 		"value" : 2
 	}, {
+		"idNum" : 6,
 		"id" : "Chicago.LakeView.Schools",
 		"value" : 10
 	}, {
+		"idNum" : 6,
 		"id" : "Chicago.LakeView.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 7,
 		"id" : "Chicago.LincolnPark",
 		"value" : null
 	}, {
+		"idNum" : 7,
 		"id" : "Chicago.LincolnPark.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 7,
 		"id" : "Chicago.LincolnPark.Schools",
 		"value" : 7
 	}, {
+		"idNum" : 7,
 		"id" : "Chicago.LincolnPark.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 4,
 		"id" : "Chicago.LincolnSquare",
 		"value" : null
 	}, {
+		"idNum" : 4,
 		"id" : "Chicago.LincolnSquare.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 4,
 		"id" : "Chicago.LincolnSquare.Schools",
 		"value" : 5
 	}, {
+		"idNum" : 4,
 		"id" : "Chicago.LincolnSquare.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 22,
 		"id" : "Chicago.LoganSquare",
 		"value" : null
 	}, {
+		"idNum" : 22,
 		"id" : "Chicago.LoganSquare.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 22,
 		"id" : "Chicago.LoganSquare.Schools",
 		"value" : 12
 	}, {
+		"idNum" : 22,
 		"id" : "Chicago.LoganSquare.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 32,
 		"id" : "Chicago.Loop",
 		"value" : null
 	}, {
+		"idNum" : 32,
 		"id" : "Chicago.Loop.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 32,
 		"id" : "Chicago.Loop.Schools",
 		"value" : 3
 	}, {
+		"idNum" : 32,
 		"id" : "Chicago.Loop.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 31,
 		"id" : "Chicago.LowerWestSide",
 		"value" : null
 	}, {
+		"idNum" : 31,
 		"id" : "Chicago.LowerWestSide.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 31,
 		"id" : "Chicago.LowerWestSide.Schools",
 		"value" : 16
-	}, {	
+	}, {
+		"idNum" : 31,
 		"id" : "Chicago.LowerWestSide.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 59,
 		"id" : "Chicago.MckinleyPark",
 		"value" : null
 	}, {
+		"idNum" : 59,
 		"id" : "Chicago.MckinleyPark.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 59,
 		"id" : "Chicago.MckinleyPark.Schools",
 		"value" : 5
 	}, {
+		"idNum" : 59,
 		"id" : "Chicago.MckinleyPark.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 18,
 		"id" : "Chicago.Montclare",
 		"value" : null
 	}, {
+		"idNum" : 18,
 		"id" : "Chicago.Montclare.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 18,
 		"id" : "Chicago.Montclare.Schools",
 		"value" : 1
 	}, {
+		"idNum" : 18,
 		"id" : "Chicago.Montclare.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 75,
 		"id" : "Chicago.MorganPark",
 		"value" : null
 	}, {
+		"idNum" : 75,
 		"id" : "Chicago.MorganPark.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 75,
 		"id" : "Chicago.MorganPark.Schools",
 		"value" : 6
 	}, {
+		"idNum" : 75,
 		"id" : "Chicago.MorganPark.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 74,
 		"id" : "Chicago.MountGreenwood",
 		"value" : null
 	}, {
+		"idNum" : 74,
 		"id" : "Chicago.MountGreenwood.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 74,
 		"id" : "Chicago.MountGreenwood.Schools",
 		"value" : 4
 	}, {
+		"idNum" : 74,
 		"id" : "Chicago.MountGreenwood.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 8,
 		"id" : "Chicago.NearNorthSide",
 		"value" : null
 	}, {
+		"idNum" : 8,
 		"id" : "Chicago.NearNorthSide.Libraries",
 		"value" : 2
 	}, {
+		"idNum" : 8,
 		"id" : "Chicago.NearNorthSide.Schools",
 		"value" : 8
 	}, {
+		"idNum" : 8,
 		"id" : "Chicago.NearNorthSide.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 33,
 		"id" : "Chicago.NearSouthSide",
 		"value" : null
 	}, {
+		"idNum" : 33,
 		"id" : "Chicago.NearSouthSide.Libraries",
 		"value" : 0
 	}, {
+		"idNum" : 33,
 		"id" : "Chicago.NearSouthSide.Schools",
 		"value" : 4
 	}, {
+		"idNum" : 33,
 		"id" : "Chicago.NearSouthSide.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 28,
 		"id" : "Chicago.NearWestSide",
 		"value" : null
 	}, {
+		"idNum" : 28,
 		"id" : "Chicago.NearWestSide.Libraries",
 		"value" : 2
 	}, {
+		"idNum" : 28,
 		"id" : "Chicago.NearWestSide.Schools",
 		"value" : 27
 	}, {
+		"idNum" : 28,
 		"id" : "Chicago.NearWestSide.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 61,
 		"id" : "Chicago.NewCity",
 		"value" : null
 	}, {
+		"idNum" : 61,
 		"id" : "Chicago.NewCity.Libraries",
 		"value" : 2
 	}, {
+		"idNum" : 61,
 		"id" : "Chicago.NewCity.Schools",
 		"value" : 16
 	}, {
+		"idNum" : 61,
 		"id" : "Chicago.NewCity.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 5,
 		"id" : "Chicago.NorthCenter",
 		"value" : null
 	}, {
+		"idNum" : 5,
 		"id" : "Chicago.NorthCenter.Libraries",
 		"value" : 0
 	}, {
+		"idNum" : 5,
 		"id" : "Chicago.NorthCenter.Schools",
 		"value" : 7
 	}, {
+		"idNum" : 5,
 		"id" : "Chicago.NorthCenter.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 29,
 		"id" : "Chicago.NorthLawndale",
 		"value" : null
 	}, {
+		"idNum" : 29,
 		"id" : "Chicago.NorthLawndale.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 29,
 		"id" : "Chicago.NorthLawndale.Schools",
 		"value" : 24
 	}, {
+		"idNum" : 29,
 		"id" : "Chicago.NorthLawndale.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 13,
 		"id" : "Chicago.NorthPark",
 		"value" : null
 	}, {
+		"idNum" : 13,
 		"id" : "Chicago.NorthPark.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 13,
 		"id" : "Chicago.NorthPark.Schools",
 		"value" : 6
 	}, {
+		"idNum" : 13,
 		"id" : "Chicago.NorthPark.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 10,
 		"id" : "Chicago.NorwoodPark",
 		"value" : null
 	}, {
+		"idNum" : 10,
 		"id" : "Chicago.NorwoodPark.Libraries",
 		"value" : 2
 	}, {
+		"idNum" : 10,
 		"id" : "Chicago.NorwoodPark.Schools",
 		"value" : 8
 	}, {
+		"idNum" : 10,
 		"id" : "Chicago.NorwoodPark.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 36,
 		"id" : "Chicago.Oakland",
 		"value" : null
 	}, {
+		"idNum" : 36,
 		"id" : "Chicago.Oakland.Libraries",
 		"value" : 0
 	}, {
+		"idNum" : 36,
 		"id" : "Chicago.Oakland.Schools",
 		"value" : 2
 	}, {
+		"idNum" : 36,
 		"id" : "Chicago.Oakland.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 76,
 		"id" : "Chicago.Ohare",
 		"value" : null
 	}, {
+		"idNum" : 76,
 		"id" : "Chicago.Ohare.Libraries",
 		"value" : 0
 	}, {
+		"idNum" : 76,
 		"id" : "Chicago.Ohare.Schools",
 		"value" : 1
 	}, {
+		"idNum" : 76,
 		"id" : "Chicago.Ohare.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 15,
 		"id" : "Chicago.PortagePark",
 		"value" : null
 	}, {
+		"idNum" : 15,
 		"id" : "Chicago.PortagePark.Libraries",
 		"value" : 3
 	}, {
+		"idNum" : 15,
 		"id" : "Chicago.PortagePark.Schools",
 		"value" : 7
 	}, {
+		"idNum" : 15,
 		"id" : "Chicago.PortagePark.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 50,
 		"id" : "Chicago.Pullman",
 		"value" : null
 	}, {
+		"idNum" : 50,
 		"id" : "Chicago.Pullman.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 50,
 		"id" : "Chicago.Pullman.Schools",
 		"value" : 7
 	}, {
+		"idNum" : 50,
 		"id" : "Chicago.Pullman.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 54,
 		"id" : "Chicago.Riverdale",
 		"value" : null
 	}, {
+		"idNum" : 54,
 		"id" : "Chicago.Riverdale.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 54,
 		"id" : "Chicago.Riverdale.Schools",
 		"value" : 6
 	}, {
+		"idNum" : 54,
 		"id" : "Chicago.Riverdale.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 1,
 		"id" : "Chicago.RogersPark",
 		"value" : null
 	}, {
+		"idNum" : 1,
 		"id" : "Chicago.RogersPark.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 1,
 		"id" : "Chicago.RogersPark.Schools",
 		"value" : 7
 	}, {
+		"idNum" : 1,
 		"id" : "Chicago.RogersPark.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 49,
 		"id" : "Chicago.Roseland",
 		"value" : null
 	}, {
+		"idNum" : 49,
 		"id" : "Chicago.Roseland.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 49,
 		"id" : "Chicago.Roseland.Schools",
 		"value" : 12
 	}, {
+		"idNum" : 49,
 		"id" : "Chicago.Roseland.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 46,
 		"id" : "Chicago.SouthChicago",
 		"value" : null
 	}, {
+		"idNum" : 46,
 		"id" : "Chicago.SouthChicago.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 46,
 		"id" : "Chicago.SouthChicago.Schools",
 		"value" : 12
 	}, {
+		"idNum" : 46,
 		"id" : "Chicago.SouthChicago.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 51,
 		"id" : "Chicago.SouthDeering",
 		"value" : null
 	}, {
+		"idNum" : 51,
 		"id" : "Chicago.SouthDeering.Libraries",
-		"value" :1
+		"value" : 1
 	}, {
+		"idNum" : 51,
 		"id" : "Chicago.SouthDeering.Schools",
 		"value" : 3
 	}, {
+		"idNum" : 51,
 		"id" : "Chicago.SouthDeering.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 30,
 		"id" : "Chicago.SouthLawndale",
 		"value" : null
 	}, {
+		"idNum" : 30,
 		"id" : "Chicago.SouthLawndale.Libraries",
 		"value" : 2
 	}, {
+		"idNum" : 30,
 		"id" : "Chicago.SouthLawndale.Schools",
 		"value" : 24
 	}, {
+		"idNum" : 30,
 		"id" : "Chicago.SouthLawndale.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 43,
 		"id" : "Chicago.SouthShore",
 		"value" : null
 	}, {
+		"idNum" : 43,
 		"id" : "Chicago.SouthShore.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 43,
 		"id" : "Chicago.SouthShore.Schools",
 		"value" : 11
 	}, {
+		"idNum" : 43,
 		"id" : "Chicago.SouthShore.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 3,
 		"id" : "Chicago.Uptown",
 		"value" : null
 	}, {
+		"idNum" : 3,
 		"id" : "Chicago.Uptown.Libraries",
 		"value" : 2
 	}, {
+		"idNum" : 3,
 		"id" : "Chicago.Uptown.Schools",
 		"value" : 8
 	}, {
+		"idNum" : 3,
 		"id" : "Chicago.Uptown.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 73,
 		"id" : "Chicago.WashingtonHeights",
 		"value" : null
 	}, {
+		"idNum" : 73,
 		"id" : "Chicago.WashingtonHeights.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 73,
 		"id" : "Chicago.WashingtonHeights.Schools",
 		"value" : 12
 	}, {
+		"idNum" : 73,
 		"id" : "Chicago.WashingtonHeights.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 40,
 		"id" : "Chicago.WashingtonPark",
 		"value" : null
 	}, {
+		"idNum" : 40,
 		"id" : "Chicago.WashingtonPark.Libraries",
 		"value" : 0
 	}, {
+		"idNum" : 40,
 		"id" : "Chicago.WashingtonPark.Schools",
 		"value" : 6
 	}, {
+		"idNum" : 40,
 		"id" : "Chicago.WashingtonPark.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 62,
 		"id" : "Chicago.WestElsdon",
 		"value" : null
 	}, {
+		"idNum" : 62,
 		"id" : "Chicago.WestElsdon.Libraries",
 		"value" : 0
 	}, {
+		"idNum" : 62,
 		"id" : "Chicago.WestElsdon.Schools",
 		"value" : 3
 	}, {
+		"idNum" : 62,
 		"id" : "Chicago.WestElsdon.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 67,
 		"id" : "Chicago.WestEnglewood",
 		"value" : null
 	}, {
+		"idNum" : 67,
 		"id" : "Chicago.WestEnglewood.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 67,
 		"id" : "Chicago.WestEnglewood.Schools",
 		"value" : 13
 	}, {
+		"idNum" : 67,
 		"id" : "Chicago.WestEnglewood.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 26,
 		"id" : "Chicago.WestGarfieldPark",
 		"value" : null
 	}, {
+		"idNum" : 26,
 		"id" : "Chicago.WestGarfieldPark.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 26,
 		"id" : "Chicago.WestGarfieldPark.Schools",
 		"value" : 6
 	}, {
+		"idNum" : 26,
 		"id" : "Chicago.WestGarfieldPark.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 65,
 		"id" : "Chicago.WestLawn",
 		"value" : null
 	}, {
+		"idNum" : 65,
 		"id" : "Chicago.WestLawn.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 65,
 		"id" : "Chicago.WestLawn.Schools",
 		"value" : 4
 	}, {
+		"idNum" : 65,
 		"id" : "Chicago.WestLawn.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 53,
 		"id" : "Chicago.WestPullman",
 		"value" : null
 	}, {
+		"idNum" : 53,
 		"id" : "Chicago.WestPullman.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 53,
 		"id" : "Chicago.WestPullman.Schools",
 		"value" : 9
 	}, {
+		"idNum" : 53,
 		"id" : "Chicago.WestPullman.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 2,
 		"id" : "Chicago.WestRidge",
 		"value" : null
 	}, {
+		"idNum" : 2,
 		"id" : "Chicago.WestRidge.Libraries",
 		"value" : 2
 	}, {
+		"idNum" : 2,
 		"id" : "Chicago.WestRidge.Schools",
 		"value" : 10
 	}, {
+		"idNum" : 2,
 		"id" : "Chicago.WestRidge.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 24,
 		"id" : "Chicago.WestTown",
 		"value" : null
 	}, {
+		"idNum" : 24,
 		"id" : "Chicago.WestTown.Libraries",
 		"value" : 2
 	}, {
+		"idNum" : 24,
 		"id" : "Chicago.WestTown.Schools",
 		"value" : 24
 	}, {
+		"idNum" : 24,
 		"id" : "Chicago.WestTown.Shootings",
 		"value" : null
 	}, {
+		"idNum" : 42,
 		"id" : "Chicago.Woodlawn",
 		"value" : null
 	}, {
+		"idNum" : 42,
 		"id" : "Chicago.Woodlawn.Libraries",
 		"value" : 1
 	}, {
+		"idNum" : 42,
 		"id" : "Chicago.Woodlawn.Schools",
 		"value" : 7
 	}, {
+		"idNum" : 42,
 		"id" : "Chicago.Woodlawn.Shootings",
 		"value" : null
 	}
