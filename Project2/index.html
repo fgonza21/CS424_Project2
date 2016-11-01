@@ -178,7 +178,7 @@
       
         <div class="navbar-header">
         
-            <a href="" class="navbar-brand">Project</a>
+            <a href="" class="navbar-brand">Project 2</a>
 
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             
@@ -196,15 +196,14 @@
 
             <ul class="nav navbar-nav">
           
-                <li><a href="#vis1">Vis 1</a></li>
+                <li><a href="#vis1">Plot Map</a></li>
                   
-                <li><a href="#vis2">Vis 2</a></li>
+                <li><a href="#vis2">Choropleth Map</a></li>
                   
-                <li><a href="#vis3">Vis 3</a></li>
+                <li><a href="#vis3">Bar Chart</a></li>
 
-                <li><a href="#vis4">Vis 4</a></li>
+                <li><a href="#vis4">Network Map</a></li>
 
-                <li><a href="#vis5">Vis 5</a></li>
 
             </ul>
 
@@ -246,9 +245,21 @@
 
 
 
-<div class="container marginTop" id="vis1"></div>
-<div class="container" id="vis2"></div>
-<div class="container" id="vis3"></div>
+<div class="container marginTop" id="vis1">
+
+<h1>Plot Map</h1>
+<h4>Yellow - Schools</h4>
+<h4>Green - Libraries</h4>
+</div>
+
+<div class="container" id="vis2">
+
+<h1>Choropleth Map</h1>
+
+</div>
+<div class="container" id="vis3">
+
+</div>
 <div class="container" id="vis4"></div>
 <div class="container" id="vis5"></div>
 
@@ -282,13 +293,13 @@ var svg3 = d3.select("#vis3")
 var svg4 = d3.select("#vis4")
       .append("svg")
       .attr("width", width)
-      .attr("height", height);
+      .attr("height", 1300);
 
-//vis5
+//vis4
 var svg5 = d3.select("#vis5")
       .append("svg")
       .attr("width", width)
-      .attr("height", 1060);
+      .attr("height", 1200);
 
 
 //Width and height
@@ -824,8 +835,8 @@ function createMap4() {
     var chartWidth, chartHeight
     var margin
     //var svg4 = d3.select("#graph").append("svg")
-    var axisLayer = svg4.append("g").classed("axisLayer", true)
-    var chartLayer = svg4.append("g").classed("chartLayer", true)
+    var axisLayer = svg3.append("g").classed("axisLayer", true)
+    var chartLayer = svg3.append("g").classed("chartLayer", true)
         
     var xScale = d3.scaleBand()
     var xInScale = d3.scaleBand();
@@ -963,7 +974,8 @@ function createMap5() {
     //width = +svg5.attr("width"),
     //height = +svg5.attr("height"),
     //height = 1060;
-    g = svg5.append("g").attr("transform", "translate(" + (width / 2 + 40) + "," + (height / 2 + 90) + ")");
+    //netheight = 1060;
+    g = svg4.append("g").attr("transform", "translate(" + (width / 2 + 40) + "," + (height / 2 ) + ")");
 
 var stratify = d3.stratify()
     .parentId(function(d) { return d.id.substring(0, d.id.lastIndexOf(".")); });
@@ -1098,15 +1110,15 @@ var nes;
 
 function change() {
     //
-    d3.selectAll("circle").remove();
+    svg.selectAll("circle").remove();
 
     svg2.selectAll("path").remove();
 
-    svg3.selectAll("path").remove();
+    //svg3.selectAll("path").remove();
     
     createMap1();
     choroplethMap();
-    createMap3();
+    //createMap3();
 }
 
 //runs change function on year select
@@ -1114,7 +1126,7 @@ d3.selectAll("select").on("change", change);
 
 createMap1();
 choroplethMap();
-createMap3();
+//createMap3();
 createMap4();
 createMap5();
 
