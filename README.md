@@ -17,9 +17,10 @@ We allow the user to select a year in order to view information one year at a ti
 To install this project, copy the Project2 folder to a webserver and point a web browser to the Project2 url. From there you can choose a specfic year that you are interested in.
 
 Banner and year selection - Mario
-Plot Map - Mario/Randy
+Plot Map - Randy
 Shade Map - Mario
 Network - Francisco/Mario
 Bar Chart - Francisco
 Github - Francisco
+Data Manipulation - Randy/Francisco
 
