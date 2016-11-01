@@ -51,7 +51,9 @@
         top:350px;
     }
 
-    /*bootstrap stuff*/
+
+
+    //bootstrap stuff
 
     #topContainer {
       background-image: url("snow.jpg");
@@ -107,59 +109,62 @@
     .appstoreImage  {
       width:250px;
     }
-    div.tooltip {
-    position: absolute;
-    text-align: left;
-    width: 210px;
-    height: 60px;
-    padding: 12px;
-    font: 12px sans-serif;
-    background: rgba(0, 0, 0, 1);
+    div.tooltip {   
+    position: absolute;         
+    text-align: left;         
+    width: 210px;                    
+    height: 80px;                   
+    padding: 12px;               
+    font: 12px sans-serif;      
+    background: rgba(0, 0, 0, 1); 
     color: #fff;
-    border: 0px;
-    border-radius: 2px;
-    pointer-events: none;
+    border: 0px;        
+    border-radius: 2px;         
+    pointer-events: none;           
     }
 
-    #vis4 {
+    #graph {
     width: 1200px;
     height: 500px;
     }
+
     .tick line {
-      stroke-dasharray: 2 2 ;
-      stroke: #000000;
-	  
-	.node--library circle {
-  fill: #FFF68F;
-}
+        stroke-dasharray: 2 2 ;
+        stroke: #000000;
+    }
 
-.node--school circle {
-  fill: #D1EEEE;
-}
+    //vis5
+    .node--library circle {
+      fill: #FFF68F;
+    }
 
-.node--shooting circle {
-  fill: #000000;
-}
+    .node--school circle {
+      fill: #D1EEEE;
+    }
 
-.node text {
-  font: 10px sans serif;
-}
+    .node--shooting circle {
+      fill: #000000;
+    }
 
-.node--internal circle {
-  fill: #555;
-}
+    .node text {
+      font: 10px sans serif;
+    }
 
-.node--internal text {
-  text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
-}
+    .node--internal circle {
+      fill: #555;
+    }
 
-.link {
-  fill: none;
-  stroke: #555;
-  stroke-opacity: 0.4;
-  stroke-width: 1.5px;
-}  
-	
+    .node--internal text {
+      text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+    }
+
+    .link {
+      fill: none;
+      stroke: #555;
+      stroke-opacity: 0.4;
+      stroke-width: 1.5px;
+    }
+
     </style>
     </head>
 
@@ -168,39 +173,39 @@
 <body data-spy="scroll" data-target=".navbar-collapse">
 
 <div class="navbar navbar-inverse navbar-fixed-top">
-
+  
       <div class="container">
-
+      
         <div class="navbar-header">
-
-            <a href="" class="navbar-brand">Project 2</a>
+        
+            <a href="" class="navbar-brand">Project</a>
 
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-
+            
           <span class="sr-only">Toggle navigation</span>
 
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-
+            
             </button>
-
+        
         </div>
 
         <div class="collapse navbar-collapse">
 
             <ul class="nav navbar-nav">
+          
+                <li><a href="#vis1">Vis 1</a></li>
+                  
+                <li><a href="#vis2">Vis 2</a></li>
+                  
+                <li><a href="#vis3">Vis 3</a></li>
 
-                <li><a href="#vis1">Plot Map</a></li>
+                <li><a href="#vis4">Vis 4</a></li>
 
-                <li><a href="#vis2">Shaded Map</a></li>
+                <li><a href="#vis5">Vis 5</a></li>
 
-                <!--<li><a href="#vis3">Vis 3</a></li>-->
-				
-				<li><a href="#vis5">Network</a></li>
-				
-				<li><a href="#vis4">Bar Chart</a></li>
-				
             </ul>
 
             <form class="navbar-form navbar-right">
@@ -235,19 +240,17 @@
         </div>
 
 
-      </div>
-
-</div>
+      </div> 
+  
+</div> 
 
 
 
 <div class="container marginTop" id="vis1"></div>
 <div class="container" id="vis2"></div>
-<!--div class="container" id="vis3"></div-->
-<div class="container" id="vis5"></div>
-
+<div class="container" id="vis3"></div>
 <div class="container" id="vis4"></div>
-
+<div class="container" id="vis5"></div>
 
 <script>
 
@@ -255,7 +258,7 @@ var crimes;
 var newData;
 
 var width = 1200,
-    height = 800;
+        height = 800;
 
 //vis1
 var svg = d3.select("#vis1")
@@ -274,17 +277,17 @@ var svg3 = d3.select("#vis3")
       .append("svg")
       .attr("width", width)
       .attr("height", height);
-	  
+
 //vis4
 var svg4 = d3.select("#vis4")
       .append("svg")
       .attr("width", width)
       .attr("height", height);
-	  
+
 //vis5
 var svg5 = d3.select("#vis5")
       .append("svg")
-      .attr("width", 960)
+      .attr("width", width)
       .attr("height", 1060);
 
 
@@ -314,23 +317,25 @@ function createMap1() {
 
     d3.json("community.json", function (data) {
         var values;
+        var chicagodata;
         d3.csv("SchoolLocations.csv", function (schoolData) {
         d3.csv("LibraryLocations.csv", function (libraryData) {
+        d3.json("chicago.json", function (chicago) {
+            chicagodata = chicago;
         d3.csv("data/crimes.csv", function (csvdata) {
             var e = document.getElementById("selectYear");
             var usrYear = e.options[e.selectedIndex].value;
             if (usrYear == 0) {
                 crimeData = csvdata;
             } else {
-                crimeData = csvdata.filter(function (a) {
+                crimeData = csvdata.filter(function(a) { 
                     return a.Year == usrYear;
                 });
             }
-            nes = d3.nest().key(function (d) {
-                return d["Year"];
-            }).key(function (d) {
-                return d["Community Area"];
-            }).entries(csvdata);
+            nes = d3.nest().key(function(d) { return d["Year"]; }).key(function(d) { return d["Community Area"]; }).entries(csvdata);
+            //nes[0] year
+            //nes[0].values areas
+            //nes[0].values[0].values array of crimes
 
             // Loop through each community
             for (var i = 0; i < data.length; i++) {
@@ -354,108 +359,140 @@ function createMap1() {
                 }
             }
 
+
             // Bind the data to the SVG and create one path per GeoJSON feature
             svg.selectAll("path")
                 .data(data.features)
                 .enter()
                 .append("path")
                 .attr("d", path)
+                .attr("lib", function (d) {
+                    for (var k=0; k<chicagodata.length; k++) {
+                        //console.log(chicagodata[k].id);
+                        //return chicagodata.id;
+                        if (chicagodata[k].idNum == d.id && chicagodata[k].id.substring(chicagodata[k].id.lastIndexOf(".") + 1) == "Libraries") {
+                            return chicagodata[k].value;
+                        }
+                    }
+                    return 0;
+                })
+                .attr("schools", function (d) {
+                    for (var k=0; k<chicagodata.length; k++) {
+                        //console.log(chicagodata[k].id);
+                        //return chicagodata.id;
+                        if (chicagodata[k].idNum == d.id && chicagodata[k].id.substring(chicagodata[k].id.lastIndexOf(".") + 1) == "Schools") {
+                            return chicagodata[k].value;
+                        }
+                    }
+                    return 0;
+                })
+
                 .style("stroke", "#fff")
                 .style("stroke-width", "1")
                 .style("fill", function (d) {
 
+                    // Can set fill in color here
+                    var value = d.properties.visited;
 
-                    //If value is undefined…
-                    return "rgb(128,128,128)";
-
+                    if (value) {
+                        //If value exists…
+                        return color(value);
+                    }
+                    else {
+                        //If value is undefined…
+                        return "rgb(128,128,128)";
+                    }
                 })    //<span style='color:red'>" + d.frequency + "</span>"
                 .on("mouseover", function (d) {
                     var e = document.getElementById("selectYear");
                     var usrYear = e.options[e.selectedIndex].value;
-                    var count = 0;
+                    var count=0;
                     if (usrYear == 0) {
-                        var temp = csvdata.filter(function (a) {
+                        var temp = csvdata.filter(function(a) {
                             return a['Community Area'] == parseInt(d.id);
-                        });
-                        count = temp.length;
+                        })
+                        count = temp.length; 
                     } else {
-                        for (var i = 0; i < nes.length; i++) {
+                        for (var i=0; i<nes.length; i++) {
                             if (nes[i].key == usrYear) {
-                                for (var j = 0; j < nes[i].values.length; j++) {
+                                for (var j=0; j<nes[i].values.length; j++) {
                                     if (nes[i].values[j].key == parseInt(d.id)) {
                                         count = nes[i].values[j].values.length;
                                     }
                                 }
                             }
-                        }
+                        } 
                     }
                     d3.select(this)
-                        .style("fill", "#B0171F");
+                    .style("fill", "#B0171F");
                     div.transition()
                         .duration(200)
                         .style("opacity", .9);
-                    div.html("Community: " + d.properties.name + ", " + "</br>" +
-                        "Shootings: <span style='color:red'><strong>" + count + "</strong></span>")
+                    div.html("Community: " + d.properties.name + ", " + "</br>" + 
+                        "Shootings: <span style='color:red'><strong>" + count + "</strong></span>" + "</br>" + "# of Libraries: " + d3.select(this).attr("lib")
+                        + "</br>" + "# of Schools: " + d3.select(this).attr("schools"))
                         .style("left", (d3.event.pageX) + "px")
                         .style("top", (d3.event.pageY - 28) + "px");
                 })
 
                 // fade out tooltip on mouse out
-                .on("mouseout", function (data) {
+                .on("mouseout", function(data) {
                     d3.select(this)
-                        .style("fill", "rgb(128,128,128)");
+                    .style("fill", "rgb(128,128,128)");
                     div.transition()
                         .duration(500)
                         .style("opacity", 0);
                 });
 
-            // Plot the Libraries
-            svg.selectAll("circle")
-                .data(libraryData)
-                .enter()
-                .append("circle")
-                .attr("cx", function (d) {
-                    return projection([d.Longitude, d.Latitude])[0];
-                })
-                .attr("cy", function (d) {
-                    return projection([d.Longitude, d.Latitude])[1];
-                })
-                .attr("r", 3)
-                .style("fill", "rgb(0,255,0)")
-                .style("opacity", 0.50);
 
-            // Plot the Schools
-            svg.selectAll("circle")
-                .data(schoolData)
-                .enter()
-                .append("circle")
-                .attr("cx", function (d) {
-                    return projection([d.Longitude, d.Latitude])[0];
-                })
-                .attr("cy", function (d) {
-                    return projection([d.Longitude, d.Latitude])[1];
-                })
-                .attr("r", 3)
-                .style("fill", "rgb(255,255,0)")
-                .style("opacity", 0.50);
 
-            // Plot the Shootings
-            svg.selectAll("circle")
-                .data(crimeData)
-                .enter()
-                .append("circle")
-                .attr("cx", function (d) {
-                    return projection([d.Longitude, d.Latitude])[0];
-                })
-                .attr("cy", function (d) {
-                    return projection([d.Longitude, d.Latitude])[1];
-                })
-                .attr("r", 1)
-                .style("fill", "rgb(0,0,0)")
-                .style("opacity", 0.50)
-        });
-        });
-        });
+                // Plot the Libraries
+                svg.selectAll("circle")
+                    .data(libraryData)
+                    .enter()
+                    .append("circle")
+                    .attr("cx", function (d) {
+                        return projection([d.Longitude, d.Latitude])[0];
+                    })
+                    .attr("cy", function (d) {
+                        return projection([d.Longitude, d.Latitude])[1];
+                    })
+                    .attr("r", 3)
+                    .style("fill", "rgb(0,255,0)")
+                    .style("opacity", 0.50);
+
+                // Plot the Schools
+                svg.selectAll("circle")
+                    .data(schoolData)
+                    .enter()
+                    .append("circle")
+                    .attr("cx", function (d) {
+                        return projection([d.Longitude, d.Latitude])[0];
+                    })
+                    .attr("cy", function (d) {
+                        return projection([d.Longitude, d.Latitude])[1];
+                    })
+                    .attr("r", 3)
+                    .style("fill", "rgb(255,255,0)")
+                    .style("opacity", 0.50);
+
+                svg.selectAll("circle")
+                    .data(crimeData)
+                    .enter()
+                    .append("circle")
+                    .attr("cx", function (d) {
+                        return projection([d.Longitude, d.Latitude])[0];
+                    })
+                    .attr("cy", function (d) {
+                        return projection([d.Longitude, d.Latitude])[1];
+                    })
+                    .attr("r", 1)
+                    .style("fill", "rgb(0,0,0)")
+                    .style("opacity", 0.85)
+            }); 
+            });
+            });
+            });
     });
 }
 
@@ -495,16 +532,21 @@ function choroplethMap() {
 
     d3.json("community.json", function (data) {
         var values;
-		
+        var chicagodata;
+        d3.json("chicago.json", function (chicago) {
+            chicagodata = chicago;
         d3.csv("data/crimes.csv", function (csvdata) {
             if (usrYear == 0) {
                 crimeData = csvdata;
             } else {
-                crimeData = csvdata.filter(function(a) {
+                crimeData = csvdata.filter(function(a) { 
                     return a.Year == usrYear;
                 });
             }
             nes = d3.nest().key(function(d) { return d["Year"]; }).key(function(d) { return d["Community Area"]; }).entries(csvdata);
+            //nes[0] year
+            //nes[0].values areas
+            //nes[0].values[0].values array of crimes
 
             // Loop through each community
             for (var i = 0; i < data.length; i++) {
@@ -534,6 +576,24 @@ function choroplethMap() {
                 .enter()
                 .append("path")
                 .attr("d", path)
+                .attr("lib", function (d) {
+                    for (var k=0; k<chicagodata.length; k++) {
+                        if (chicagodata[k].idNum == d.id && chicagodata[k].id.substring(chicagodata[k].id.lastIndexOf(".") + 1) == "Libraries") {
+                            return chicagodata[k].value;
+                        }
+                    }
+                    return 0;
+                })
+                .attr("schools", function (d) {
+                    for (var k=0; k<chicagodata.length; k++) {
+                        //console.log(chicagodata[k].id);
+                        //return chicagodata.id;
+                        if (chicagodata[k].idNum == d.id && chicagodata[k].id.substring(chicagodata[k].id.lastIndexOf(".") + 1) == "Schools") {
+                            return chicagodata[k].value;
+                        }
+                    }
+                    return 0;
+                })
                 .style("stroke", "#fff")
                 .style("stroke-width", "1")
                 .style("fill", function (d) {
@@ -568,13 +628,17 @@ function choroplethMap() {
                     var usrYear = e.options[e.selectedIndex].value;
                     var count=0;
                     if (usrYear == 0) {
+                        /*var temp = csvdata.filter(function(a) {
+                            return a['Community Area'] == parseInt(d.id);
+                        })
+                        count = temp.length;*/ 
                         for (var i=0; i<nes.length; i++) {
                             for (var j=0; j<nes[i].values.length; j++) {
                                 if (nes[i].values[j].key == parseInt(d.id)) {
                                     count += nes[i].values[j].values.length;
                                 }
                             }
-                        }
+                        } 
                     } else {
                         for (var i=0; i<nes.length; i++) {
                             if (nes[i].key == usrYear) {
@@ -584,13 +648,15 @@ function choroplethMap() {
                                     }
                                 }
                             }
-                        }
+                        } 
                     }
                     div.transition()
                         .duration(200)
                         .style("opacity", .9);
-                    div.html("Community: " + d.properties.name + ", " + "</br>" +
-                        "Shootings: <span style='color:red'><strong>" + count + "</strong></span>")
+                    div.html("Community: " + d.properties.name + ", " + "</br>" + 
+                        "Shootings: <span style='color:red'><strong>" + count + "</strong></span>"
+                        + "</br>" + "# of Libraries: " + d3.select(this).attr("lib")
+                        + "</br>" + "# of Schools: " + d3.select(this).attr("schools"))
                         .style("left", (d3.event.pageX) + "px")
                         .style("top", (d3.event.pageY - 28) + "px");
                 })
@@ -601,11 +667,12 @@ function choroplethMap() {
                         .duration(500)
                         .style("opacity", 0);
                 });
-            });
+        }); 
+    });
     });
 }
 
-/*function createMap3 () {
+function createMap3 () {
     //Width and height
 
 var rateById = d3.map();
@@ -615,6 +682,7 @@ var projection = d3.geoAlbers()
     .scale([99000])
     .rotate([87.6298,0])
     .center([0,41.8781]);
+
 
 var e = document.getElementById("selectYear");
 var usrYear = e.options[e.selectedIndex].value;
@@ -629,9 +697,16 @@ if (usrYear == 0) { //2001-2016
         .range(['#053061', '#2166ac', '#67a9cf', '#d1e5f0', '#f4a582', '#d6604d','#b2182b', '#67001f']);
 }
 
+
 //Define path generator
 var path = d3.geoPath()
   .projection(projection);
+
+//Create SVG element
+/*var svg = d3.select("body")
+  .append("svg")
+  .attr("width", width)
+  .attr("height", height);*/
 
 // Append Div for tooltip to SVG
 var div = d3.select("body")
@@ -670,12 +745,12 @@ d3.csv("ShootingTotals.csv", function(data) {
             if (usrYear == 0) {
                 crimeData = csvdata;
             } else {
-                crimeData = csvdata.filter(function(a) {
+                crimeData = csvdata.filter(function(a) { 
                     return a.Year == usrYear;
                 });
             }
             nes = d3.nest().key(function(d) { return d["Year"]; }).key(function(d) { return d["Community Area"]; }).entries(csvdata);
-
+        
 
         // Bind the data to the SVG and create one path per GeoJSON feature
         svg3.selectAll("path")
@@ -687,6 +762,19 @@ d3.csv("ShootingTotals.csv", function(data) {
             .style("stroke-width", "1")
             .style("fill", function (d) {
 
+                // Can set fill in color here
+                /*var value = d.properties.total;
+
+                if (value) {
+                    //If value exists…
+                    console.log("COLOR: " + color(value) + ", " + value );
+                    return color(value);
+                }
+                else {
+                    //If value is undefined…
+                    return "rgb(255,0,0)";
+                }*/
+
                     var count=0;
                     if (usrYear != 0) {
                         for (var i=0; i<nes.length; i++) {
@@ -694,7 +782,6 @@ d3.csv("ShootingTotals.csv", function(data) {
                                 for (var j=0; j<nes[i].values.length; j++) {
                                     if (nes[i].values[j].key == parseInt(d.id)) {
                                         count = nes[i].values[j].values.length;
-                                        console.log("COLOR: " + color(parseInt(count)) + ", " + count );
                                         return color(parseInt(count));
                                     }
                                 }
@@ -705,7 +792,6 @@ d3.csv("ShootingTotals.csv", function(data) {
                             for (var j=0; j<nes[i].values.length; j++) {
                                 if (nes[i].values[j].key == parseInt(d.id)) {
                                     count = nes[i].values[j].values.length;
-                                    console.log("COLOR: " + color(parseInt(count)) + ", " + count );
                                     return color(parseInt(count));
                                 }
                             }
@@ -731,12 +817,13 @@ d3.csv("ShootingTotals.csv", function(data) {
         });
     });
 });
-}*/
+}
 
-function createBar () {
-    var width, height
+function createMap4() {
+        //var width,height
     var chartWidth, chartHeight
     var margin
+    //var svg4 = d3.select("#graph").append("svg")
     var axisLayer = svg4.append("g").classed("axisLayer", true)
     var chartLayer = svg4.append("g").classed("chartLayer", true)
         
@@ -747,10 +834,7 @@ function createBar () {
     var color = d3.scaleOrdinal()
         .range(["Black", "Blue", "Red"]);
     
-	var values;
-	var nes;
-	
-	d3.csv("counts.csv", cast,  main)
+    d3.csv("counts.csv", cast,  main)
     
     function cast(d) {
         Object.keys(d).forEach(function(key){
@@ -760,21 +844,17 @@ function createBar () {
     }
     
     function main(data) {
-        console.log(data)
+        //console.log(data)
                 
         var nested = d3.nest()
             .rollup(function(d){ delete d[0].CommunityAreaName; return d[0] })
             .key(function(d){ return d.CommunityAreaName })
             .entries(data)
-		    var e = document.getElementById("selectYear");
-            var usrYear = e.options[e.selectedIndex].value;
-                    
+
         nested.forEach(function(d){
-			//if(Object.keys(d.value) === "LibraryCount" || Object.keys(d.value) === "SchoolCount" || Object.keys(d.value) === usrYear){
-            d.CommunityAreaNumber = Object.keys(d.value).map(function(key){
+            d.age = Object.keys(d.value).map(function(key){
                 return {key:key, value:d.value[key]}
             })
-			//}
         })
 
         setSize(nested)
@@ -783,8 +863,8 @@ function createBar () {
     }
     
     function setSize(nested) {
-        width = document.querySelector("#vis4").clientWidth
-        height = document.querySelector("#vis4").clientHeight
+        //width = document.querySelector("#graph").clientWidth
+        //height = document.querySelector("#graph").clientHeight
     
         margin = {top:0, left:100, bottom:140, right:0 }
                 
@@ -803,9 +883,9 @@ function createBar () {
         xScale.domain(nested.map(function(d) { return d.key }))
             .range([0, chartWidth]).paddingInner(0.1)
                     
-        var yNames = Object.keys(nested[0].value)
+        var ageNames = Object.keys(nested[0].value)
         
-        xInScale.domain(yNames).range([0, xScale.bandwidth()])
+        xInScale.domain(ageNames).range([0, xScale.bandwidth()])
         
         var yMax = d3.max(nested.map(function(d){
             var values = Object.keys(d.value).map(function(key){
@@ -822,17 +902,17 @@ function createBar () {
             .duration(1000)
             .ease(d3.easeLinear)
         
-        var comm = chartLayer.selectAll(".comm")
+        var contry = chartLayer.selectAll(".contry")
             .data(nested)
             
-        var newComm = comm.enter().append("g")
-		    .attr("class", "comm")
-					        
-        comm.merge(newComm)
+        var newCountry = contry.enter().append("g")
+            .attr("class", "contry")
+                            
+        contry.merge(newCountry)
             .attr("transform", function(d) { return "translate(" + [xScale(d.key), 0] + ")"; });
-			
-        var bar = newComm.selectAll(".bar")
-            .data(function(d){ return d.CommunityAreaNumber })
+            
+        var bar = newCountry.selectAll(".bar")
+            .data(function(d){ return d.age })
 
         var newBar = bar.enter().append("rect").attr("class", "bar")
                         
@@ -841,8 +921,8 @@ function createBar () {
             .attr("height", 0)
             .attr("fill", function(d) { return color(d.key); })
             .attr("transform", function(d) { return "translate(" + [xInScale(d.key), chartHeight] + ")" })
-			
-        bar.merge(newBar).transition(t)
+            
+       bar.merge(newBar).transition(t)
             .attr("height", function(d) { return chartHeight - yScale(d.value); })
             .attr("transform", function(d) { return "translate(" + [xInScale(d.key), yScale(d.value)] + ")" })        
     }
@@ -862,19 +942,22 @@ function createBar () {
             .attr("class", "axis x")
             .attr("transform", "translate("+[margin.left, chartHeight]+")")
             .call(xAxis)
-			.selectAll("text")  
+            .selectAll("text")  
               .style("text-anchor", "end")
-			  .attr("font-family", "sans-serif")
-			  .attr("font-size", "12px")
+              .attr("font-family", "sans-serif")
+              .attr("font-size", "12px")
               .attr("dx", "-.8em")
               .attr("dy", ".15em")
               .attr("transform", "rotate(-65)" );
-    }
+    }    
 }
 
-function network(){
-    width = +svg5.attr("width"),
-    height = +svg5.attr("height"),
+function createMap5() {
+
+    //var svg = d3.select("svg"),
+    //width = +svg5.attr("width"),
+    //height = +svg5.attr("height"),
+    //height = 1060;
     g = svg5.append("g").attr("transform", "translate(" + (width / 2 + 40) + "," + (height / 2 + 90) + ")");
 
 var stratify = d3.stratify()
@@ -884,64 +967,57 @@ var tree = d3.tree()
     .size([360, 320])
     .separation(function(a, b) { return (a.parent == b.parent ? 1 : 2) / a.depth; });
 
-d3.json("chicago.json", function(error, data) {
-  if (error) throw error;
+    d3.json("chicago.json", function(error, data) {
+      if (error) throw error;
 
-  var root = tree(stratify(data));
+      var root = tree(stratify(data));
 
-  var link = g.selectAll(".link")
-    .data(root.descendants().slice(1))
-    .enter().append("path")
-      .attr("class", "link")
-      .attr("d", function(d) {
-        return "M" + project(d.x, d.y)
-            + "C" + project(d.x, (d.y + d.parent.y) / 2)
-            + " " + project(d.parent.x, (d.y + d.parent.y) / 2)
-            + " " + project(d.parent.x, d.parent.y);
-      });
+      var link = g.selectAll(".link")
+        .data(root.descendants().slice(1))
+        .enter().append("path")
+          .attr("class", "link")
+          .attr("d", function(d) {
+            return "M" + project(d.x, d.y)
+                + "C" + project(d.x, (d.y + d.parent.y) / 2)
+                + " " + project(d.parent.x, (d.y + d.parent.y) / 2)
+                + " " + project(d.parent.x, d.parent.y);
+          });
 
-  var node = g.selectAll(".node")
-    .data(root.descendants())
-    .enter().append("g")
-    .attr("class", function(d) { return "node" + (d.children ? " node--internal" : " node--leaf"); })
-    .attr("transform", function(d) { return "translate(" + project(d.x, d.y) + ")"; });
+      var node = g.selectAll(".node")
+        .data(root.descendants())
+        .enter().append("g")
+        .attr("class", function(d) { return "node" + (d.children ? " node--internal" : " node--leaf"); })
+        .attr("transform", function(d) { return "translate(" + project(d.x, d.y) + ")"; });
 
-  node.append("circle")
-      .attr("r", 2.5);
+      node.append("circle")
+          .attr("r", 2.5);
 
-	node.append("text")
-      .attr("dy", ".16em")
-      .attr("x", function(d) { return d.x < 180 === !d.children ? 6 : -6; })
-      .style("text-anchor", function(d) { return d.x < 180 === !d.children ? "start" : "end"; })
-      .attr("transform", function(d) { return "rotate(" + (d.x < 180 ? d.x - 90 : d.x + 90) + ")"; })
-      .text(function(d) { return d.id.substring(d.id.lastIndexOf(".") + 1); });
-});
+        node.append("text")
+          .attr("dy", ".16em")
+          .attr("x", function(d) { return d.x < 180 === !d.children ? 6 : -6; })
+          .style("text-anchor", function(d) { return d.x < 180 === !d.children ? "start" : "end"; })
+          .attr("transform", function(d) { return "rotate(" + (d.x < 180 ? d.x - 90 : d.x + 90) + ")"; })
+          .text(function(d) { return d.id.substring(d.id.lastIndexOf(".") + 1); });
+    });
 
-function project(x, y) {
-  var angle = (x - 90) / 180 * Math.PI, radius = y;
-  return [radius * Math.cos(angle), radius * Math.sin(angle)];
-}
-
-
+    function project(x, y) {
+      var angle = (x - 90) / 180 * Math.PI, radius = y;
+      return [radius * Math.cos(angle), radius * Math.sin(angle)];
+    }
 }
 
 
 function change() {
+    //
     d3.selectAll("circle").remove();
 
     svg2.selectAll("path").remove();
 
-    //svg3.selectAll("path").remove();
-	
-	svg4.selectAll().remove();
-	
-	svg5.selectAll("nodes").remove();
-
+    svg3.selectAll("path").remove();
+    
     createMap1();
     choroplethMap();
-    //createMap3();
-	createBar();
-	network();
+    createMap3();
 }
 
 //runs change function on year select
@@ -949,9 +1025,12 @@ d3.selectAll("select").on("change", change);
 
 createMap1();
 choroplethMap();
-//createMap3();
-createBar();
-network();
+createMap3();
+createMap4();
+createMap5();
 
 </script>
+
+
+
 </body>
