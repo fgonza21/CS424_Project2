@@ -954,6 +954,11 @@ function createMap4() {
 
 function createMap5() {
 
+    var div = d3.select("body")
+        .append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
     //var svg = d3.select("svg"),
     //width = +svg5.attr("width"),
     //height = +svg5.attr("height"),
@@ -966,6 +971,21 @@ var stratify = d3.stratify()
 var tree = d3.tree()
     .size([360, 320])
     .separation(function(a, b) { return (a.parent == b.parent ? 1 : 2) / a.depth; });
+
+var crimeData;
+var nes;
+    d3.csv("data/crimes.csv", function (csvdata) {
+        var e = document.getElementById("selectYear");
+        var usrYear = e.options[e.selectedIndex].value;
+        if (usrYear == 0) {
+            crimeData = csvdata;
+        } else {
+            crimeData = csvdata.filter(function(a) { 
+                return a.Year == usrYear;
+            });
+        }
+
+        nes = d3.nest().key(function(d) { return d["Year"]; }).key(function(d) { return d["Community Area"]; }).entries(csvdata);
 
     d3.json("chicago.json", function(error, data) {
       if (error) throw error;
@@ -990,7 +1010,74 @@ var tree = d3.tree()
         .attr("transform", function(d) { return "translate(" + project(d.x, d.y) + ")"; });
 
       node.append("circle")
-          .attr("r", 2.5);
+          .attr("r", 2.5)
+          .style("fill", function (a) {
+            if (a.id.substring(a.id.lastIndexOf(".") + 1) == "Libraries") {
+                return "rgb(0,255,0)";
+            } else if (a.id.substring(a.id.lastIndexOf(".") + 1) == "Schools") {
+                return "rgb(255,255,0)";
+            }
+
+          })
+            .attr("lib", function (d) {
+                    //for (var k=0; k<chicagodata.length; k++) {
+                        //console.log(chicagodata[k].id);
+                        //return chicagodata.id;
+                        if (d.id.substring(d.id.lastIndexOf(".") + 1) == "Libraries") {
+                            return String(d.value);
+                        }
+                    //}
+                    return 0;
+                })
+            .attr("schools", function (d) {
+                //for (var k=0; k<chicagodata.length; k++) {
+                    //console.log(chicagodata[k].id);
+                    //return chicagodata.id;
+                    if (d.id.substring(d.id.lastIndexOf(".") + 1) == "Schools") {
+                        return String(d.value);
+                    }
+               // }
+                return 0;
+            })
+          .on("mouseover", function (d) {
+                    var e = document.getElementById("selectYear");
+                    var usrYear = e.options[e.selectedIndex].value;
+                    var count=0;
+                    if (usrYear == 0) {
+                        var temp = csvdata.filter(function(a) {
+                            return a['Community Area'] == parseInt(d.id);
+                        })
+                        count = temp.length; 
+                    } else {
+                        for (var i=0; i<nes.length; i++) {
+                            if (nes[i].key == usrYear) {
+                                for (var j=0; j<nes[i].values.length; j++) {
+                                    if (nes[i].values[j].key == parseInt(d.id)) {
+                                        count = nes[i].values[j].values.length;
+                                    }
+                                }
+                            }
+                        } 
+                    }
+                    d3.select(this)
+                    .style("fill", "#B0171F");
+                    div.transition()
+                        .duration(200)
+                        .style("opacity", .9);
+                    div.html( 
+                        "Shootings: <span style='color:red'><strong>" + count + "</strong></span>" + "</br>" + "# of Libraries: " + d3.select(this).attr("lib")
+                        + "</br>" + "# of Schools: " + d3.select(this).attr("schools"))
+                        .style("left", (d3.event.pageX) + "px")
+                        .style("top", (d3.event.pageY - 28) + "px");
+            })
+            // fade out tooltip on mouse out
+            .on("mouseout", function(data) {
+                d3.select(this)
+                .style("fill", "rgb(128,128,128)");
+                div.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });
 
         node.append("text")
           .attr("dy", ".16em")
@@ -999,11 +1086,13 @@ var tree = d3.tree()
           .attr("transform", function(d) { return "rotate(" + (d.x < 180 ? d.x - 90 : d.x + 90) + ")"; })
           .text(function(d) { return d.id.substring(d.id.lastIndexOf(".") + 1); });
     });
+});
 
     function project(x, y) {
       var angle = (x - 90) / 180 * Math.PI, radius = y;
       return [radius * Math.cos(angle), radius * Math.sin(angle)];
     }
+
 }
 
 
