@@ -269,7 +269,8 @@ var crimes;
 var newData;
 
 var width = 1200,
-        height = 800;
+    height = 800,
+    centered;
 
 //vis1
 var svg = d3.select("#vis1")
@@ -301,8 +302,7 @@ var svg5 = d3.select("#vis5")
       .attr("width", width)
       .attr("height", 1200);
 
-
-//Width and height
+// Plot Map
 function createMap1() {
     var rateById = d3.map();
 
@@ -326,6 +326,7 @@ function createMap1() {
         .attr("class", "tooltip")
         .style("opacity", 0);
 
+
     d3.json("community.json", function (data) {
         var values;
         var chicagodata;
@@ -339,7 +340,7 @@ function createMap1() {
             if (usrYear == 0) {
                 crimeData = csvdata;
             } else {
-                crimeData = csvdata.filter(function(a) { 
+                crimeData = csvdata.filter(function(a) {
                     return a.Year == usrYear;
                 });
             }
@@ -372,7 +373,7 @@ function createMap1() {
 
 
             // Bind the data to the SVG and create one path per GeoJSON feature
-            svg.selectAll("path")
+            var pathing = svg.selectAll("path")
                 .data(data.features)
                 .enter()
                 .append("path")
@@ -397,6 +398,9 @@ function createMap1() {
                     }
                     return 0;
                 })
+                .call(d3.zoom()
+                        .scaleExtent([1 / 2, 4])
+                        .on("zoom", zoomed))
 
                 .style("stroke", "#fff")
                 .style("stroke-width", "1")
@@ -414,6 +418,7 @@ function createMap1() {
                         return "rgb(128,128,128)";
                     }
                 })    //<span style='color:red'>" + d.frequency + "</span>"
+
                 .on("mouseover", function (d) {
                     var e = document.getElementById("selectYear");
                     var usrYear = e.options[e.selectedIndex].value;
@@ -422,7 +427,7 @@ function createMap1() {
                         var temp = csvdata.filter(function(a) {
                             return a['Community Area'] == parseInt(d.id);
                         })
-                        count = temp.length; 
+                        count = temp.length;
                     } else {
                         for (var i=0; i<nes.length; i++) {
                             if (nes[i].key == usrYear) {
@@ -432,14 +437,14 @@ function createMap1() {
                                     }
                                 }
                             }
-                        } 
+                        }
                     }
                     d3.select(this)
                     .style("fill", "#B0171F");
                     div.transition()
                         .duration(200)
                         .style("opacity", .9);
-                    div.html("Community: " + d.properties.name + ", " + "</br>" + 
+                    div.html("Community: " + d.properties.name + ", " + "</br>" +
                         "Shootings: <span style='color:red'><strong>" + count + "</strong></span>" + "</br>" + "# of Libraries: " + d3.select(this).attr("lib")
                         + "</br>" + "# of Schools: " + d3.select(this).attr("schools"))
                         .style("left", (d3.event.pageX) + "px")
@@ -455,10 +460,8 @@ function createMap1() {
                         .style("opacity", 0);
                 });
 
-
-
                 // Plot the Libraries
-                svg.selectAll("circle")
+                var lib = svg.selectAll("circle")
                     .data(libraryData)
                     .enter()
                     .append("circle")
@@ -473,7 +476,7 @@ function createMap1() {
                     .style("opacity", 0.50);
 
                 // Plot the Schools
-                svg.selectAll("circle")
+                var school = svg.selectAll("circle")
                     .data(schoolData)
                     .enter()
                     .append("circle")
@@ -487,7 +490,7 @@ function createMap1() {
                     .style("fill", "rgb(255,255,0)")
                     .style("opacity", 0.50);
 
-                svg.selectAll("circle")
+                var shoot = svg.selectAll("circle")
                     .data(crimeData)
                     .enter()
                     .append("circle")
@@ -500,7 +503,15 @@ function createMap1() {
                     .attr("r", 1)
                     .style("fill", "rgb(0,0,0)")
                     .style("opacity", 0.85)
-            }); 
+
+                function zoomed() {
+                    pathing.attr("transform", d3.event.transform);
+                    lib.attr("transform", d3.event.transform);
+                    school.attr("transform", d3.event.transform);
+                    shoot.attr("transform", d3.event.transform);
+                }
+
+            });
             });
             });
             });
@@ -1106,7 +1117,6 @@ var nes;
     }
 
 }
-
 
 function change() {
     //
