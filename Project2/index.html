@@ -261,7 +261,7 @@
 
 </div>
 <div class="container" id="vis4"></div>
-<div class="container" id="vis5"></div>
+
 
 <script>
 
@@ -997,6 +997,7 @@ var tree = d3.tree()
 
 var crimeData;
 var nes;
+var chicagodata;
     d3.csv("data/crimes.csv", function (csvdata) {
         var e = document.getElementById("selectYear");
         var usrYear = e.options[e.selectedIndex].value;
@@ -1012,7 +1013,7 @@ var nes;
 
     d3.json("chicago.json", function(error, data) {
       if (error) throw error;
-
+      chicagodata = data;
       var root = tree(stratify(data));
 
       var link = g.selectAll(".link")
@@ -1042,24 +1043,25 @@ var nes;
             }
 
           })
-            .attr("lib", function (d) {
-                    //for (var k=0; k<chicagodata.length; k++) {
-                        //console.log(chicagodata[k].id);
-                        //return chicagodata.id;
-                        if (d.id.substring(d.id.lastIndexOf(".") + 1) == "Libraries") {
-                            return String(d.value);
-                        }
-                    //}
-                    return 0;
-                })
+          .attr("lib", function (d) {
+                for (var k=0; k<chicagodata.length; k++) {
+                    //console.log(chicagodata[k].id);
+                    if (d.id.substring(d.id.indexOf(".")+1) == chicagodata[k].id.substring(chicagodata[k].id.indexOf(".") + 1) && chicagodata[k].id.substring(chicagodata[k].id.lastIndexOf(".") + 1) == "Libraries") {
+                        //console.log(chicagodata[k].idNum);
+                        return chicagodata[k].value;
+                    }
+                }
+                return 0;
+            })
             .attr("schools", function (d) {
-                //for (var k=0; k<chicagodata.length; k++) {
+                for (var k=0; k<chicagodata.length; k++) {
                     //console.log(chicagodata[k].id);
                     //return chicagodata.id;
-                    if (d.id.substring(d.id.lastIndexOf(".") + 1) == "Schools") {
-                        return String(d.value);
+                    if (d.id.substring(d.id.indexOf(".")+1) == chicagodata[k].id.substring(chicagodata[k].id.indexOf(".") + 1) && chicagodata[k].id.substring(chicagodata[k].id.lastIndexOf(".") + 1) == "Schools") {
+                        //console.log(chicagodata[k].idNum);
+                        return chicagodata[k].value;
                     }
-               // }
+                }
                 return 0;
             })
           .on("mouseover", function (d) {
@@ -1082,8 +1084,6 @@ var nes;
                             }
                         } 
                     }
-                    d3.select(this)
-                    .style("fill", "#B0171F");
                     div.transition()
                         .duration(200)
                         .style("opacity", .9);
@@ -1095,8 +1095,6 @@ var nes;
             })
             // fade out tooltip on mouse out
             .on("mouseout", function(data) {
-                d3.select(this)
-                .style("fill", "rgb(128,128,128)");
                 div.transition()
                     .duration(500)
                     .style("opacity", 0);
