@@ -12,9 +12,7 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+ 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
@@ -310,38 +308,32 @@ var crimes;
 var width = 1200,
     height = 800;
 
-//vis1
+//PlotMap
 var svg = d3.select("#vis1")
       .append("svg")
       .attr("width", width)
       .attr("height", height);
 
-//vis2
+//Choropleth
 var svg2 = d3.select("#vis2")
       .append("svg")
       .attr("width", width)
       .attr("height", height);
 
-//vis3
+//BarChart
 var svg3 = d3.select("#vis3")
       .append("svg")
       .attr("width", width)
       .attr("height", height);
 
-//vis4
+//Network
 var svg4 = d3.select("#vis4")
       .append("svg")
       .attr("width", width)
       .attr("height", 1300);
 
-//vis4
-var svg5 = d3.select("#vis5")
-      .append("svg")
-      .attr("width", width)
-      .attr("height", 1200);
-
 // Plot Map
-function createMap1() {
+function createPlotMap() {
     var rateById = d3.map();
 
     var projection = d3.geoAlbers()
@@ -383,9 +375,6 @@ function createMap1() {
                 });
             }
             nes = d3.nest().key(function(d) { return d["Year"]; }).key(function(d) { return d["Community Area"]; }).entries(csvdata);
-            //nes[0] year
-            //nes[0].values areas
-            //nes[0].values[0].values array of crimes
 
             // Loop through each community
             for (var i = 0; i < data.length; i++) {
@@ -418,8 +407,6 @@ function createMap1() {
                 .attr("d", path)
                 .attr("lib", function (d) {
                     for (var k=0; k<chicagodata.length; k++) {
-                        //console.log(chicagodata[k].id);
-                        //return chicagodata.id;
                         if (chicagodata[k].idNum == d.id && chicagodata[k].id.substring(chicagodata[k].id.lastIndexOf(".") + 1) == "Libraries") {
                             return chicagodata[k].value;
                         }
@@ -428,8 +415,6 @@ function createMap1() {
                 })
                 .attr("schools", function (d) {
                     for (var k=0; k<chicagodata.length; k++) {
-                        //console.log(chicagodata[k].id);
-                        //return chicagodata.id;
                         if (chicagodata[k].idNum == d.id && chicagodata[k].id.substring(chicagodata[k].id.lastIndexOf(".") + 1) == "Schools") {
                             return chicagodata[k].value;
                         }
@@ -455,7 +440,7 @@ function createMap1() {
                         //If value is undefined…
                         return "rgb(128,128,128)";
                     }
-                })    //<span style='color:red'>" + d.frequency + "</span>"
+                })  
 
                 .on("mouseover", function (d) {
                     var e = document.getElementById("selectYear");
@@ -604,9 +589,6 @@ function choroplethMap() {
                 });
             }
             nes = d3.nest().key(function(d) { return d["Year"]; }).key(function(d) { return d["Community Area"]; }).entries(csvdata);
-            //nes[0] year
-            //nes[0].values areas
-            //nes[0].values[0].values array of crimes
 
             // Loop through each community
             for (var i = 0; i < data.length; i++) {
@@ -646,8 +628,6 @@ function choroplethMap() {
                 })
                 .attr("schools", function (d) {
                     for (var k=0; k<chicagodata.length; k++) {
-                        //console.log(chicagodata[k].id);
-                        //return chicagodata.id;
                         if (chicagodata[k].idNum == d.id && chicagodata[k].id.substring(chicagodata[k].id.lastIndexOf(".") + 1) == "Schools") {
                             return chicagodata[k].value;
                         }
@@ -688,10 +668,6 @@ function choroplethMap() {
                     var usrYear = e.options[e.selectedIndex].value;
                     var count=0;
                     if (usrYear == 0) {
-                        /*var temp = csvdata.filter(function(a) {
-                            return a['Community Area'] == parseInt(d.id);
-                        })
-                        count = temp.length;*/ 
                         for (var i=0; i<nes.length; i++) {
                             for (var j=0; j<nes[i].values.length; j++) {
                                 if (nes[i].values[j].key == parseInt(d.id)) {
@@ -732,158 +708,9 @@ function choroplethMap() {
     });
 }
 
-function createMap3 () {
-    //Width and height
-
-var rateById = d3.map();
-
-var projection = d3.geoAlbers()
-    .translate([width/2, height/2])
-    .scale([99000])
-    .rotate([87.6298,0])
-    .center([0,41.8781]);
-
-
-var e = document.getElementById("selectYear");
-var usrYear = e.options[e.selectedIndex].value;
-
-if (usrYear == 0) { //2001-2016
-    var color = d3.scaleQuantize()
-        .domain([0, 1000])
-        .range(['#053061', '#2166ac', '#67a9cf', '#d1e5f0', '#f4a582', '#d6604d','#b2182b', '#67001f']);
-} else { //individual year
-    var color = d3.scaleQuantize()
-        .domain([0, 100])
-        .range(['#053061', '#2166ac', '#67a9cf', '#d1e5f0', '#f4a582', '#d6604d','#b2182b', '#67001f']);
-}
-
-
-//Define path generator
-var path = d3.geoPath()
-  .projection(projection);
-
-//Create SVG element
-/*var svg = d3.select("body")
-  .append("svg")
-  .attr("width", width)
-  .attr("height", height);*/
-
-// Append Div for tooltip to SVG
-var div = d3.select("body")
-    .append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
-
-// Load in Shooting data
-d3.csv("ShootingTotals.csv", function(data) {
-// Load GeoJSON data
-    d3.json("community.json", function (json) {
-
-        // Loop through each community
-        for (var i = 0; i < data.length; i++) {
-
-            // Grab Community Name
-            var dataCom = data[i].Name;
-
-            // Grab data value
-            var dataValue = data[i].Total;
-
-            // Find the corresponding community
-            for (var j = 0; j < json.features.length; j++) {
-                var jsonState = json.features[j].properties.name;
-
-                if (dataCom == jsonState) {
-                    // Copy the data value into the JSON
-                    json.features[j].properties.total = dataValue;  // Copies Total
-                    break;
-                }
-            }
-        }
-        var nes;
-        //var usrYear = 2004;
-        d3.csv("data/crimes.csv", function (csvdata) {
-            if (usrYear == 0) {
-                crimeData = csvdata;
-            } else {
-                crimeData = csvdata.filter(function(a) { 
-                    return a.Year == usrYear;
-                });
-            }
-            nes = d3.nest().key(function(d) { return d["Year"]; }).key(function(d) { return d["Community Area"]; }).entries(csvdata);
-        
-
-        // Bind the data to the SVG and create one path per GeoJSON feature
-        svg3.selectAll("path")
-            .data(json.features)
-            .enter()
-            .append("path")
-            .attr("d", path)
-            .style("stroke", "#000")
-            .style("stroke-width", "1")
-            .style("fill", function (d) {
-
-                // Can set fill in color here
-                /*var value = d.properties.total;
-
-                if (value) {
-                    //If value exists…
-                    console.log("COLOR: " + color(value) + ", " + value );
-                    return color(value);
-                }
-                else {
-                    //If value is undefined…
-                    return "rgb(255,0,0)";
-                }*/
-
-                    var count=0;
-                    if (usrYear != 0) {
-                        for (var i=0; i<nes.length; i++) {
-                            if (nes[i].key == usrYear) {
-                                for (var j=0; j<nes[i].values.length; j++) {
-                                    if (nes[i].values[j].key == parseInt(d.id)) {
-                                        count = nes[i].values[j].values.length;
-                                        return color(parseInt(count));
-                                    }
-                                }
-                            }
-                        }
-                    } else {
-                        for (var i=0; i<nes.length; i++) {
-                            for (var j=0; j<nes[i].values.length; j++) {
-                                if (nes[i].values[j].key == parseInt(d.id)) {
-                                    count = nes[i].values[j].values.length;
-                                    return color(parseInt(count));
-                                }
-                            }
-                        }
-                    }
-            })
-
-            .on("mouseover", function(data) {
-                div.transition()
-                    .duration(200)
-                    .style("opacity", .9);
-                div.text(data.properties.total)
-                    .style("left", (d3.event.pageX) + "px")
-                    .style("top", (d3.event.pageY - 28) + "px");
-            })
-
-            // fade out tooltip on mouse out
-            .on("mouseout", function(data) {
-                div.transition()
-                    .duration(500)
-                    .style("opacity", 0);
-            });
-        });
-    });
-});
-}
-
-function createMap4() {
-        //var width,height
+function createBarChart() {
     var chartWidth, chartHeight
     var margin
-    //var svg4 = d3.select("#graph").append("svg")
     var axisLayer = svg3.append("g").classed("axisLayer", true)
     var chartLayer = svg3.append("g").classed("chartLayer", true)
         
@@ -892,7 +719,7 @@ function createMap4() {
     var yScale = d3.scaleLinear()
     
     var color = d3.scaleOrdinal()
-        .range(["Black", "Blue", "Red"]);
+        .range(["Yellow", "Green", "Black"]);
     
     d3.csv("counts.csv", cast,  main)
     
@@ -905,17 +732,293 @@ function createMap4() {
     
     function main(data) {
         //console.log(data)
-                
         var nested = d3.nest()
-            .rollup(function(d){ delete d[0].CommunityAreaName; return d[0] })
+            .rollup(function(d){ 
+					delete d[0].CommunityAreaName; 
+					var e = document.getElementById("selectYear");
+					var usrYear = e.options[e.selectedIndex].value;
+					if(usrYear == 2001){
+						  delete d[0].Y2002;
+						  delete d[0].Y2003;
+						  delete d[0].Y2004;
+						  delete d[0].Y2005;
+						  delete d[0].Y2006;
+						  delete d[0].Y2007;
+						  delete d[0].Y2008;
+						  delete d[0].Y2009;
+						  delete d[0].Y2010;
+						  delete d[0].Y2011;
+						  delete d[0].Y2012;
+						  delete d[0].Y2013;
+						  delete d[0].Y2014;
+						  delete d[0].Y2015;
+						  delete d[0].Y2016;
+					  }
+					else if(usrYear == 2002){
+						  delete d[0].Y2001;
+						  delete d[0].Y2003;
+						  delete d[0].Y2004;
+						  delete d[0].Y2005;
+						  delete d[0].Y2006;
+						  delete d[0].Y2007;
+						  delete d[0].Y2008;
+						  delete d[0].Y2009;
+						  delete d[0].Y2010;
+						  delete d[0].Y2011;
+						  delete d[0].Y2012;
+						  delete d[0].Y2013;
+						  delete d[0].Y2014;
+						  delete d[0].Y2015;
+						  delete d[0].Y2016;
+					}
+					else if(usrYear == 2003){
+						  delete d[0].Y2001;
+						  delete d[0].Y2002;
+						  delete d[0].Y2004;
+						  delete d[0].Y2005;
+						  delete d[0].Y2006;
+						  delete d[0].Y2007;
+						  delete d[0].Y2008;
+						  delete d[0].Y2009;
+						  delete d[0].Y2010;
+						  delete d[0].Y2011;
+						  delete d[0].Y2012;
+						  delete d[0].Y2013;
+						  delete d[0].Y2014;
+						  delete d[0].Y2015;
+						  delete d[0].Y2016;
+					}
+					else if(usrYear == 2004){
+						  delete d[0].Y2001;
+						  delete d[0].Y2002;
+						  delete d[0].Y2003;
+						  delete d[0].Y2005;
+						  delete d[0].Y2006;
+						  delete d[0].Y2007;
+						  delete d[0].Y2008;
+						  delete d[0].Y2009;
+						  delete d[0].Y2010;
+						  delete d[0].Y2011;
+						  delete d[0].Y2012;
+						  delete d[0].Y2013;
+						  delete d[0].Y2014;
+						  delete d[0].Y2015;
+						  delete d[0].Y2016;
+					}
+					else if(usrYear == 2005){
+						  delete d[0].Y2001;
+						  delete d[0].Y2002;
+						  delete d[0].Y2003;
+						  delete d[0].Y2004;
+						  delete d[0].Y2006;
+						  delete d[0].Y2007;
+						  delete d[0].Y2008;
+						  delete d[0].Y2009;
+						  delete d[0].Y2010;
+						  delete d[0].Y2011;
+						  delete d[0].Y2012;
+						  delete d[0].Y2013;
+						  delete d[0].Y2014;
+						  delete d[0].Y2015;
+						  delete d[0].Y2016;
+					}
+					else if(usrYear == 2006){
+						  delete d[0].Y2001;
+						  delete d[0].Y2002;
+						  delete d[0].Y2003;
+						  delete d[0].Y2004;
+						  delete d[0].Y2005;
+						  delete d[0].Y2007;
+						  delete d[0].Y2008;
+						  delete d[0].Y2009;
+						  delete d[0].Y2010;
+						  delete d[0].Y2011;
+						  delete d[0].Y2012;
+						  delete d[0].Y2013;
+						  delete d[0].Y2014;
+						  delete d[0].Y2015;
+						  delete d[0].Y2016;
+					}
+					else if(usrYear == 2007){
+						  delete d[0].Y2001;
+						  delete d[0].Y2002;
+						  delete d[0].Y2003;
+						  delete d[0].Y2004;
+						  delete d[0].Y2005;
+						  delete d[0].Y2006;
+						  delete d[0].Y2008;
+						  delete d[0].Y2009;
+						  delete d[0].Y2010;
+						  delete d[0].Y2011;
+						  delete d[0].Y2012;
+						  delete d[0].Y2013;
+						  delete d[0].Y2014;
+						  delete d[0].Y2015;
+						  delete d[0].Y2016;
+					}
+					else if(usrYear == 2008){
+						  delete d[0].Y2001;
+						  delete d[0].Y2002;
+						  delete d[0].Y2003;
+						  delete d[0].Y2004;
+						  delete d[0].Y2005;
+						  delete d[0].Y2006;
+						  delete d[0].Y2007;
+						  delete d[0].Y2009;
+						  delete d[0].Y2010;
+						  delete d[0].Y2011;
+						  delete d[0].Y2012;
+						  delete d[0].Y2013;
+						  delete d[0].Y2014;
+						  delete d[0].Y2015;
+						  delete d[0].Y2016;
+					}
+					else if(usrYear == 2009){
+						  delete d[0].Y2001;
+						  delete d[0].Y2002;
+						  delete d[0].Y2003;
+						  delete d[0].Y2004;
+						  delete d[0].Y2005;
+						  delete d[0].Y2006;
+						  delete d[0].Y2007;
+						  delete d[0].Y2008;
+						  delete d[0].Y2010;
+						  delete d[0].Y2011;
+						  delete d[0].Y2012;
+						  delete d[0].Y2013;
+						  delete d[0].Y2014;
+						  delete d[0].Y2015;
+						  delete d[0].Y2016;
+					}
+					else if(usrYear == 2010){
+						  delete d[0].Y2001;
+						  delete d[0].Y2002;
+						  delete d[0].Y2003;
+						  delete d[0].Y2004;
+						  delete d[0].Y2005;
+						  delete d[0].Y2006;
+						  delete d[0].Y2007;
+						  delete d[0].Y2008;
+						  delete d[0].Y2009;
+						  delete d[0].Y2011;
+						  delete d[0].Y2012;
+						  delete d[0].Y2013;
+						  delete d[0].Y2014;
+						  delete d[0].Y2015;
+						  delete d[0].Y2016;
+					}
+					else if(usrYear == 2011){
+						  delete d[0].Y2001;
+						  delete d[0].Y2002;
+						  delete d[0].Y2003;
+						  delete d[0].Y2004;
+						  delete d[0].Y2005;
+						  delete d[0].Y2006;
+						  delete d[0].Y2007;
+						  delete d[0].Y2008;
+						  delete d[0].Y2009;
+						  delete d[0].Y2010;
+						  delete d[0].Y2012;
+						  delete d[0].Y2013;
+						  delete d[0].Y2014;
+						  delete d[0].Y2015;
+						  delete d[0].Y2016;
+					}
+				    else if(usrYear == 2012){
+						  delete d[0].Y2001;
+						  delete d[0].Y2002;
+						  delete d[0].Y2003;
+						  delete d[0].Y2004;
+						  delete d[0].Y2005;
+						  delete d[0].Y2006;
+						  delete d[0].Y2007;
+						  delete d[0].Y2008;
+						  delete d[0].Y2009;
+						  delete d[0].Y2010;
+						  delete d[0].Y2011;
+						  delete d[0].Y2013;
+						  delete d[0].Y2014;
+						  delete d[0].Y2015;
+						  delete d[0].Y2016;
+					}
+					else if(usrYear == 2013){
+						  delete d[0].Y2001;
+						  delete d[0].Y2002;
+						  delete d[0].Y2003;
+						  delete d[0].Y2004;
+						  delete d[0].Y2005;
+						  delete d[0].Y2006;
+						  delete d[0].Y2007;
+						  delete d[0].Y2008;
+						  delete d[0].Y2009;
+						  delete d[0].Y2010;
+						  delete d[0].Y2011;
+						  delete d[0].Y2012;
+						  delete d[0].Y2014;
+						  delete d[0].Y2015;
+						  delete d[0].Y2016;
+					}					
+					else if(usrYear == 2014){
+						  delete d[0].Y2001;
+						  delete d[0].Y2002;
+						  delete d[0].Y2003;
+						  delete d[0].Y2004;
+						  delete d[0].Y2005;
+						  delete d[0].Y2006;
+						  delete d[0].Y2007;
+						  delete d[0].Y2008;
+						  delete d[0].Y2009;
+						  delete d[0].Y2010;
+						  delete d[0].Y2011;
+						  delete d[0].Y2012;
+						  delete d[0].Y2013;
+						  delete d[0].Y2015;
+						  delete d[0].Y2016;
+					}
+					else if(usrYear == 2015){
+						  delete d[0].Y2001;
+						  delete d[0].Y2002;
+						  delete d[0].Y2003;
+						  delete d[0].Y2004;
+						  delete d[0].Y2005;
+						  delete d[0].Y2006;
+						  delete d[0].Y2007;
+						  delete d[0].Y2008;
+						  delete d[0].Y2009;
+						  delete d[0].Y2010;
+						  delete d[0].Y2011;
+						  delete d[0].Y2012;
+						  delete d[0].Y2013;
+						  delete d[0].Y2014;
+						  delete d[0].Y2016;
+					}
+					else if(usrYear == 2016 || usrYear == 0){
+						  delete d[0].Y2001;
+						  delete d[0].Y2002;
+						  delete d[0].Y2003;
+						  delete d[0].Y2004;
+						  delete d[0].Y2005;
+						  delete d[0].Y2006;
+						  delete d[0].Y2007;
+						  delete d[0].Y2008;
+						  delete d[0].Y2009;
+						  delete d[0].Y2010;
+						  delete d[0].Y2011;
+						  delete d[0].Y2012;
+						  delete d[0].Y2013;
+						  delete d[0].Y2014;
+						  delete d[0].Y2015;
+					}
+					return d[0] })
             .key(function(d){ return d.CommunityAreaName })
             .entries(data)
 
         nested.forEach(function(d){
-            d.age = Object.keys(d.value).map(function(key){
+            d.group = Object.keys(d.value).map(function(key){
                 return {key:key, value:d.value[key]}
             })
         })
+		console.log(nested);
 
         setSize(nested)
         drawAxis()
@@ -923,9 +1026,6 @@ function createMap4() {
     }
     
     function setSize(nested) {
-        //width = document.querySelector("#graph").clientWidth
-        //height = document.querySelector("#graph").clientHeight
-    
         margin = {top:0, left:100, bottom:140, right:0 }
                 
         chartWidth = width - (margin.left+margin.right)
@@ -962,17 +1062,17 @@ function createMap4() {
             .duration(1000)
             .ease(d3.easeLinear)
         
-        var contry = chartLayer.selectAll(".contry")
+        var neighborhood = chartLayer.selectAll(".neighborhood")
             .data(nested)
             
-        var newCountry = contry.enter().append("g")
-            .attr("class", "contry")
+        var newHood = neighborhood.enter().append("g")
+            .attr("class", "neighborhood")
                             
-        contry.merge(newCountry)
+        neighborhood.merge(newHood)
             .attr("transform", function(d) { return "translate(" + [xScale(d.key), 0] + ")"; });
             
-        var bar = newCountry.selectAll(".bar")
-            .data(function(d){ return d.age })
+        var bar = newHood.selectAll(".bar")
+            .data(function(d){ return d.group })
 
         var newBar = bar.enter().append("rect").attr("class", "bar")
                         
@@ -1012,18 +1112,13 @@ function createMap4() {
     }    
 }
 
-function createMap5() {
+function createNetwork() {
 
     var div = d3.select("body")
         .append("div")
         .attr("class", "tooltip")
         .style("opacity", 0);
 
-    //var svg = d3.select("svg"),
-    //width = +svg5.attr("width"),
-    //height = +svg5.attr("height"),
-    //height = 1060;
-    //netheight = 1060;
     g = svg4.append("g").attr("transform", "translate(" + (width / 2 + 40) + "," + (height / 2 ) + ")");
 
 var stratify = d3.stratify()
@@ -1039,6 +1134,7 @@ var chicagodata;
     d3.csv("data/crimes.csv", function (csvdata) {
         var e = document.getElementById("selectYear");
         var usrYear = e.options[e.selectedIndex].value;
+	
         if (usrYear == 0) {
             crimeData = csvdata;
         } else {
@@ -1083,9 +1179,7 @@ var chicagodata;
           })
           .attr("lib", function (d) {
                 for (var k=0; k<chicagodata.length; k++) {
-                    //console.log(chicagodata[k].id);
                     if (d.id.substring(d.id.indexOf(".")+1) == chicagodata[k].id.substring(chicagodata[k].id.indexOf(".") + 1) && chicagodata[k].id.substring(chicagodata[k].id.lastIndexOf(".") + 1) == "Libraries") {
-                        //console.log(chicagodata[k].idNum);
                         return chicagodata[k].value;
                     }
                 }
@@ -1093,10 +1187,7 @@ var chicagodata;
             })
             .attr("schools", function (d) {
                 for (var k=0; k<chicagodata.length; k++) {
-                    //console.log(chicagodata[k].id);
-                    //return chicagodata.id;
                     if (d.id.substring(d.id.indexOf(".")+1) == chicagodata[k].id.substring(chicagodata[k].id.indexOf(".") + 1) && chicagodata[k].id.substring(chicagodata[k].id.lastIndexOf(".") + 1) == "Schools") {
-                        //console.log(chicagodata[k].idNum);
                         return chicagodata[k].value;
                     }
                 }
@@ -1157,27 +1248,26 @@ var chicagodata;
 function change() {
     //
     svg.selectAll("circle").remove();
-
+    svg.selectAll("path").remove();
     svg2.selectAll("path").remove();
-
-    //svg3.selectAll("path").remove();
-    
-    createMap1();
+    svg3.selectAll("rect").remove();
+	svg3.selectAll("axisLayer").remove();
+	svg3.selectAll("chartLayer").remove();
+	svg3.selectAll("g").remove();
+	svg4.selectAll("circle").remove();
+    createPlotMap();
     choroplethMap();
-    //createMap3();
+	createBarChart();
+	createNetwork();
 }
 
 //runs change function on year select
 d3.selectAll("select").on("change", change);
 
-createMap1();
+createPlotMap();
 choroplethMap();
-//createMap3();
-createMap4();
-createMap5();
+createBarChart();
+createNetwork();
 
 </script>
-
-
-
 </body>
