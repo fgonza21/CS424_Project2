@@ -259,6 +259,7 @@
     <div class="visheader">
         <h1></h1>
         Plot Map
+    </div>
 </div>
 
 <div class="container" id="vis2">
@@ -521,7 +522,7 @@ function createMap1() {
                     })
                     .attr("r", 1)
                     .style("fill", "rgb(0,0,0)")
-                    .style("opacity", 0.85)
+                    .style("opacity", 0.85);
 
                 function zoomed() {
                     pathing.attr("transform", d3.event.transform);
