@@ -175,6 +175,19 @@
       text-align:center;
     }
 
+    .legend3 label,
+    .legend3 span {
+        border-radius:50%/50%;
+        float:left;
+        height: 2px;
+        width:30%;
+        font-size: 6px;
+        margin-right: 5px;
+        margin-left: 0px;
+        border: 2px solid #fff;
+        list-style: none;
+    }
+
     </style>
     </head>
 
@@ -259,6 +272,12 @@
     <div class="visheader">
         <h1></h1>
         Plot Map
+        <div id='legend3' style="position:absolute;bottom:600px;right:170px;float:right";>
+            <ul class= 'legend3 labels'>
+                <span style='background:#ffff00;width:15px;height:15px'></span>Schools<br>
+                <span style='background:#00ff00;width:15px;height:15px'></span>Libraries<br>
+            </ul>
+        </div>
     </div>
 </div>
 
@@ -289,8 +308,7 @@
 var crimes;
 
 var width = 1200,
-    height = 800,
-    centered;
+    height = 800;
 
 //vis1
 var svg = d3.select("#vis1")
