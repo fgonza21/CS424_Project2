@@ -24,3 +24,5 @@ Bar Chart - Francisco
 Github - Francisco
 Data Manipulation - Randy/Francisco
 
+Link to video https://drive.google.com/open?id=0B-3buMM190ooT0kyanlpcnJONkk
+
